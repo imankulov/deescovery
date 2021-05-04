@@ -1,0 +1,15 @@
+site_name: Roman Discovery
+repo_url: https://github.com/imankulov/roman_discovery
+repo_name: roman_discovery
+
+nav:
+  - home: index.md
+  - installation: installation.md
+  - usage: usage.md
+  - modules: api.md
+  - contributing: contributing.md
+  - history: history.md
+
+theme:
+  name: material
+  language: en
