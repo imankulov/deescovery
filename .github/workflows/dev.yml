@@ -44,4 +44,4 @@ jobs:
 
       - name: Test with tox
         run:
-          $HOME/.poetry/bin/poetry tox
+          $HOME/.poetry/bin/poetry run tox
