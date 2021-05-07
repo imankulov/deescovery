@@ -1,6 +1,8 @@
 from importlib import import_module
+from typing import List
 
-from roman_discovery.discovery import ModuleRule, ObjectRule, discover
+from roman_discovery import IRule
+from roman_discovery.discovery import ModuleRule, ObjectRule
 from roman_discovery.matchers import (
     MatchByCallableAttribute,
     MatchByPattern,
@@ -8,16 +10,30 @@ from roman_discovery.matchers import (
 )
 
 
-def discover_flask(import_path, flask_app):
-    discover(
-        import_path=import_path,
-        rules=[
-            models_loader(import_path),
-            blueprints_loader(import_path, flask_app),
-            commands_loader(import_path, flask_app),
-            service_initializer(import_path, flask_app),
-        ],
-    )
+def get_flask_rules(import_path: str, flask_app) -> List[IRule]:
+    """
+    Return a list of rules useful for the Flask application.
+
+    The following rules will be returned:
+
+    - Load SQLAlchemy models (files models.py)
+    - Load Flask blueprints (files controllers.py)
+    - Load Flask CLI commands (files cli.py)
+    - Initialize services (top-level file services.py)
+
+    Args:
+        import_path: name of the top-level module of the project (like, "myproject")
+        flask_app: a Flask app instance.
+
+    Returns:
+        A list of rules, suitable to be passed to "roman_discovery.discover()"
+    """
+    return [
+        models_loader(import_path),
+        blueprints_loader(import_path, flask_app),
+        commands_loader(import_path, flask_app),
+        service_initializer(import_path, flask_app),
+    ]
 
 
 def models_loader(import_path):
