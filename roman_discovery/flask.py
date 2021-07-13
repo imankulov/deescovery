@@ -40,9 +40,7 @@ def models_loader(import_path):
     """Load all models."""
     return ModuleRule(
         name="Flask models loader",
-        module_matches=MatchByPattern(
-            [f"{import_path}.*.models", f"{import_path}.*.models.*"]
-        ),
+        module_matches=MatchByPattern(generate_patterns(import_path, "models")),
         module_action=import_module,
     )
 
@@ -55,9 +53,7 @@ def blueprints_loader(import_path, flask_app):
         raise RuntimeError("Flask is not installed.")
     return ObjectRule(
         name="Flask blueprints loader",
-        module_matches=MatchByPattern(
-            [f"{import_path}.*.controllers", f"{import_path}.*.controllers.*"]
-        ),
+        module_matches=MatchByPattern(generate_patterns(import_path, "controllers")),
         object_matches=MatchByType(Blueprint),
         object_action=flask_app.register_blueprint,
     )
@@ -71,19 +67,50 @@ def commands_loader(import_path, flask_app):
         raise RuntimeError("Flask is not installed.")
     return ObjectRule(
         name="Flask CLI commands loader",
-        module_matches=MatchByPattern(
-            [f"{import_path}.*.cli", f"{import_path}.*.cli.*"]
-        ),
+        module_matches=MatchByPattern(generate_patterns(import_path, "cli")),
         object_matches=MatchByType(AppGroup),
         object_action=flask_app.cli.add_command,
     )
 
 
 def service_initializer(import_path, flask_app):
-    """Find and initialize all instances of Flask applications."""
+    """
+    Find and initialize all instances of Flask applications.
+
+    Notice that the initialize scans for top-level services files, and doesn't
+    walk over all your app's domain package.
+    """
     return ObjectRule(
         name="Flask service initializer",
         module_matches=MatchByPattern([f"{import_path}.services"]),
         object_matches=MatchByCallableAttribute("init_app"),
         object_action=lambda obj: obj.init_app(app=flask_app),
     )
+
+
+def generate_patterns(import_path: str, module_prefix: str) -> list[str]:
+    """
+    Generate a list of patterns to discover.
+
+    For example, gen_patterns("myapp", "models") generates patterns that make matchers
+    discover the content in the following files.
+
+        myapp/users/models.py
+        myapp/invoices/models.py
+        (etc. for all domain packages beyond "users" and "invoices")
+        ...
+
+        myapp/users/models_roles.py
+        myapp/users/models_groups.py
+        (etc. for all modules started with "models_" in all domain packages)
+        ...
+
+        myapp/users/models/roles.py
+        myapp/users/models/groups.py
+        (if you prefer nested structures)
+    """
+    return [
+        f"{import_path}.*.{module_prefix}",
+        f"{import_path}.*.{module_prefix}_*",
+        f"{import_path}.*.{module_prefix}.*",
+    ]
