@@ -6,9 +6,11 @@ from roman_discovery.matchers import MatchByCallableAttribute, MatchByPattern
 @pytest.mark.parametrize(
     "patterns, package, result",
     [
-        (["*.bar"], "foo.bar", True),
-        (["*.bar.*"], "foo.bar", False),
-        (["*.bar", "*.bar.*"], "foo.bar", True),
+        (["*.models"], "domain_package.models", True),
+        (["*.models_*"], "domain_package.models", False),
+        (["*.models_*"], "domain_package.models_user", True),
+        (["*.models.*"], "domain_package.models", False),
+        (["*.models", "*.models.*"], "domain_package.models", True),
     ],
 )
 def test_match_by_pattern_should_return_relevant_packages(patterns, package, result):
