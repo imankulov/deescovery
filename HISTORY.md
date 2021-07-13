@@ -1,6 +1,6 @@
 # History
 
-## UNRELEASED
+## 0.3.0 (2021-07-13)
 
 * Flask rules: add support for flat domain package structure.
 
