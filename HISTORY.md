@@ -1,6 +1,6 @@
 # History
 
-## UNRELEASED
+## 0.3.1 (2021-08-06)
 
 * Fixed an accidentally introduced incompatibility with python3.7 and 3.8
 
