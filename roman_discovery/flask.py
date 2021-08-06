@@ -88,7 +88,7 @@ def service_initializer(import_path, flask_app):
     )
 
 
-def generate_patterns(import_path: str, module_prefix: str) -> list[str]:
+def generate_patterns(import_path: str, module_prefix: str) -> List[str]:
     """
     Generate a list of patterns to discover.
 
