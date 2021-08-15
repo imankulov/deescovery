@@ -19,6 +19,8 @@ logger = getLogger(__name__)
 
 
 class IRule(abc.ABC):
+    """Generic type for a rule."""
+
     @abc.abstractmethod
     def discover(self, module_name: str):
         ...
@@ -26,6 +28,11 @@ class IRule(abc.ABC):
 
 @dataclass
 class ModuleRule(IRule):
+    """Module rule.
+
+    Defines a rule 'Run <module_action> for all modules matching <module_matches>'.
+    """
+
     name: str
     module_matches: ModuleMatches
     module_action: ModuleAction
@@ -38,6 +45,12 @@ class ModuleRule(IRule):
 
 @dataclass
 class ObjectRule(IRule):
+    """Object rule.
+
+    Defines a rule 'Run <object_action> for all objects matching <object_matches>
+    inside modules matching <module_matches>'.
+    """
+
     name: str
     module_matches: ModuleMatches
     object_matches: ObjectMatches
@@ -55,6 +68,18 @@ class ObjectRule(IRule):
 
 
 def discover(import_path: str, rules: List[IRule]):
+    """Discover all objects.
+
+    Scan the package, find all modules and objects, matching the given set of rules,
+    and apply actions defined in them.
+
+    Args:
+        import_path: top-level module name to start scanning. Usually, it's a name of
+            your application, e.g., "myapp". If your application doesn't have a single
+            top-level module, you will probably call it for all top-level modules.
+        rules: a list of module and objects rules. Each rule contains the
+            match specification and the action, if the object matches.
+    """
     for module_name in find_modules(import_path=import_path, recursive=True):
         for rule in rules:
             rule.discover(module_name)
