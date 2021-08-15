@@ -1,5 +1,4 @@
-"""
-Helper functions copied as-is from Werkzeug utils.
+"""Helper functions copied as-is from Werkzeug utils.
 
 Ref: https://github.com/pallets/werkzeug/blob/master/src/werkzeug/utils.py
 
@@ -12,8 +11,7 @@ from importlib import import_module
 
 
 def find_modules(import_path, include_packages=False, recursive=False):
-    """
-    Finds all the modules below a package.
+    """Finds all the modules below a package.
 
     This can be useful to
     automatically import all views / controllers so that their metaclasses /

@@ -1,8 +1,12 @@
 # History
 
+## UNRELEASED
+
+* Updated pre-commit hooks.
+
 ## 0.3.1 (2021-08-06)
 
-* Fixed an accidentally introduced incompatibility with python3.7 and 3.8
+* Fixed an accidentally introduced incompatibility with python3.7 and 3.8.
 
 ## 0.3.0 (2021-07-13)
 

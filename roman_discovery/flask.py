@@ -11,8 +11,7 @@ from roman_discovery.matchers import (
 
 
 def get_flask_rules(import_path: str, flask_app) -> List[IRule]:
-    """
-    Return a list of rules useful for the Flask application.
+    """Return a list of rules useful for the Flask application.
 
     The following rules will be returned:
 
@@ -74,8 +73,7 @@ def commands_loader(import_path, flask_app):
 
 
 def service_initializer(import_path, flask_app):
-    """
-    Find and initialize all instances of Flask applications.
+    """Find and initialize all instances of Flask applications.
 
     Notice that the initialize scans for top-level services files, and doesn't
     walk over all your app's domain package.
@@ -89,8 +87,7 @@ def service_initializer(import_path, flask_app):
 
 
 def generate_patterns(import_path: str, module_prefix: str) -> List[str]:
-    """
-    Generate a list of patterns to discover.
+    """Generate a list of patterns to discover.
 
     For example, gen_patterns("myapp", "models") generates patterns that make matchers
     discover the content in the following files.
