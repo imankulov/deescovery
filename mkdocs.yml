@@ -2,6 +2,16 @@ site_name: Roman Discovery
 repo_url: https://github.com/imankulov/roman_discovery
 repo_name: roman_discovery
 
+plugins:
+  - search
+  - mkdocstrings
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - pymdownx.highlight
+  - pymdownx.superfences
+
 nav:
   - home: index.md
   - installation: installation.md
