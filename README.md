@@ -1,6 +1,6 @@
 # Roman Discovery
 
-## Background
+## Micro-framework initialization is a mess
 
 Micro-framework-based projects are clean while they're small. Every micro-framework codebase I've seen suffer from the same problem: a mess in the project initialization module. Sooner or later, your entry point package becomes a soup of ad-hoc environment reads, imports-within-functions, and plug-in initializations.
 
