@@ -1,3 +1,20 @@
+"""Module for the Flask-specific rules.
+
+A sample Flask app generator would look like this.
+
+```python
+from flask import Flask
+from roman_discovery discover
+from roman_discovery.flask import get_flask_rules
+
+def app() -> Flask:
+    flask_app = Flask(__name__)
+    flask_app.config.from_object("myapp.config")
+    discovery_rules = get_flask_rules("myapp", flask_app)
+    discover("dashboards", discovery_rules)
+    return flask_app
+```
+"""
 from importlib import import_module
 from typing import List
 

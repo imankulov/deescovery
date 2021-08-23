@@ -1,3 +1,4 @@
+"""List of generic matchers."""
 import fnmatch
 import inspect
 from dataclasses import dataclass

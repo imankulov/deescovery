@@ -2,6 +2,7 @@
 
 ## UNRELEASED
 
+* Updated project documentation.
 * Updated pre-commit hooks.
 
 ## 0.3.1 (2021-08-06)

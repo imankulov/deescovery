@@ -4,7 +4,9 @@ repo_name: roman_discovery
 
 plugins:
   - search
-  - mkdocstrings
+  - mkdocstrings:
+      watch:
+        - roman_discovery
 
 markdown_extensions:
   - admonition
@@ -13,12 +15,9 @@ markdown_extensions:
   - pymdownx.superfences
 
 nav:
-  - home: index.md
-  - installation: installation.md
-  - usage: usage.md
-  - modules: api.md
-  - contributing: contributing.md
-  - history: history.md
+  - Home: index.md
+  - API: api.md
+
 
 theme:
   name: material
