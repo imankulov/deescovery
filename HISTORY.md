@@ -1,6 +1,6 @@
 # History
 
-## UNRELEASED
+## 0.3.2 (2021-08-24)
 
 * Added MatchBySubclass object matcher.
 * Updated project documentation.

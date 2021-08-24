@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "roman_discovery"
-version = "0.3.1"
+version = "0.3.2"
 homepage = "https://github.com/imankulov/roman_discovery"
 description = "Discover packages and classes in a python project."
 authors = ["Roman Imankulov <roman.imankulov@gmail.com>"]
