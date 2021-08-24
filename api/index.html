@@ -373,6 +373,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#roman_discovery.matchers.MatchBySubclass" class="md-nav__link">
+    MatchBySubclass
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#roman_discovery.matchers.MatchByType" class="md-nav__link">
     MatchByType
   </a>
@@ -543,6 +550,13 @@
           <li class="md-nav__item">
   <a href="#roman_discovery.matchers.MatchByPattern" class="md-nav__link">
     MatchByPattern
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#roman_discovery.matchers.MatchBySubclass" class="md-nav__link">
+    MatchBySubclass
   </a>
   
 </li>
@@ -1209,6 +1223,57 @@ initializing Flask plugins.)</p>
 the following instance will match all files "models.py" and "models/<something>.py"
 in a flat list of packages inside your application.</p>
 <div class="highlight"><pre><span></span><code>matcher = MatchByPattern([&quot;*.models&quot;, &quot;*.models.*&quot;])
+</code></pre></div>
+
+
+
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-class">
+
+
+
+<h3 id="roman_discovery.matchers.MatchBySubclass" class="doc doc-heading">
+        <code>MatchBySubclass</code>
+
+
+  <span class="doc doc-properties">
+      <small class="doc doc-property doc-property-dataclass"><code>dataclass</code></small>
+  </span>
+
+</h3>
+
+    <div class="doc doc-contents ">
+
+      <p>Object matcher that select classes that are subclasses of a given type.</p>
+<p>Constructor accepts a type or a tuple of types. E.g., the following instance will
+find all Django models in a model.</p>
+<div class="highlight"><pre><span></span><code>from django.db import models
+matcher = MatchBySubclass(models.Model)
 </code></pre></div>
 
 

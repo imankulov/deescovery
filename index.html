@@ -230,8 +230,8 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#background" class="md-nav__link">
-    Background
+  <a href="#micro-framework-initialization-is-a-mess" class="md-nav__link">
+    Micro-framework initialization is a mess
   </a>
   
 </li>
@@ -327,8 +327,8 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#background" class="md-nav__link">
-    Background
+  <a href="#micro-framework-initialization-is-a-mess" class="md-nav__link">
+    Micro-framework initialization is a mess
   </a>
   
 </li>
@@ -393,7 +393,7 @@
                 
                 
                 <h1 id="roman-discovery">Roman Discovery</h1>
-<h2 id="background">Background</h2>
+<h2 id="micro-framework-initialization-is-a-mess">Micro-framework initialization is a mess</h2>
 <p>Micro-framework-based projects are clean while they're small. Every micro-framework codebase I've seen suffer from the same problem: a mess in the project initialization module. Sooner or later, your entry point package becomes a soup of ad-hoc environment reads, imports-within-functions, and plug-in initializations.</p>
 <p>The infamous <code>create_app()</code> is a boiling broth where architectural rules, dependencies, and common sense don't exist.  The core of The Application Factory Pattern, proposed, for example, in the <a href="https://flask.palletsprojects.com/en/2.0.x/patterns/appfactories/">official Flask documentation</a>, and the <a href="https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-xv-a-better-application-structure">Flask Mega-Tutorial</a>, legitimize this pattern.</p>
 <p>It would be OK to keep that ugly, primordial mess hidden behind a layer of abstraction, but the primitive nature of <code>create_app()</code> leaves no place for the <a href="https://blog.cleancoder.com/uncle-bob/2014/05/12/TheOpenClosedPrinciple.html">open-closed principle</a>. We need to get back to this module every time we add a new plug-in, a new blueprint, or a new package.</p>
