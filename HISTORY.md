@@ -2,6 +2,7 @@
 
 ## UNRELEASED
 
+* Added MatchBySubclass object matcher.
 * Updated project documentation.
 * Updated pre-commit hooks.
 
