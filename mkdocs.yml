@@ -1,6 +1,6 @@
 site_name: Roman Discovery
-repo_url: https://github.com/imankulov/roman_discovery
-repo_name: roman_discovery
+repo_url: https://github.com/imankulov/roman-discovery
+repo_name: roman-discovery
 
 plugins:
   - search
