@@ -4,6 +4,7 @@ repo_name: roman_discovery
 
 plugins:
   - search
+  - include-markdown
   - mkdocstrings:
       watch:
         - roman_discovery
@@ -16,6 +17,8 @@ markdown_extensions:
 
 nav:
   - Home: index.md
+  - flask.md
+  - anything_else.md
   - API: api.md
 
 
