@@ -1,7 +1,11 @@
 # Usage with Flask
 
-Using within the opinionated Flask structure was the initial purpose of the package. Use `deescovery.discover()` with
-`deescovery.flask.get_flask_rules()`.
+The initial purpose of the package was to serve as a discovery module for the opinionated Flask structure. Out of the box, the deescovery can do the following.
+
+- **Initialize services.** The de-facto standard of initializing Flask extensions is to have classes with the method `init_app()`. The rules will scan top-level services.py of your application, find all the instances that have `init_app()` methods, and call `obj.init_app(app=flask_app)` for each of them.
+- **Initialize blueprints.** Scan controllers.py, controllers_*.py and controllers/ to find [Flask blueprints](https://flask.palletsprojects.com/en/2.0.x/blueprints/) and attach them to the flask application.
+- **Initialize SQLALchemy.** Import all files in models.py models_*.py and models/ to help [flask-migrate](https://flask-migrate.readthedocs.io/en/latest/) find all the SQLAlchemy models to create migrations.
+- **Initialize all commands.** Flask supports [custom commands](https://flask.palletsprojects.com/en/2.0.x/cli/). The rules scan cli.py, cli_*.py and cli/ to find flask.cli.AppGroup instances and attach them to Flask's CLI.
 
 The function expects the following project structure.
 
@@ -12,44 +16,18 @@ myproject
   config.py
   services.py
 
-  # Simple flat structure with one module
-  # per role in a domain package.
   foo/
     controllers.py
     models.py
     cli.py
 
-
-  # Flat structure with multiple modules per
-  # role in a domain package. Modules of the same
-  # role share the same prefix
   bar/
-    controllers_api.py
-    controllers_admin.py
-    models_users.py
-    models_projects.py
-    cli_users.py
-    cli_projects.py
+    controllers.py
+    models.py
+    cli.py
 
-  # Nested structure with one flat package per role
-  baz/
-    controllers/
-      api.py
-      admin.py
-    models/
-      users.py
-      projects.py
-    cli/
-      users.py
-      projects.py
+  ...
 ```
-
-With this structure, it will do the following.
-
-- Scan controllers.py, controllers_*.py and controllers/ to find blueprints and attach the blueprints to the flask application.
-- Import all files in models.py models_*.py and models/ to help flask-migrate find all the SQLAlchemy models to create migrations.
-- Scan cli.py, cli_*.py and cli/ to find flask.cli.AppGroup instances and attach them to Flask's CLI.
-- Scan top-level services.py, find all the instances that have `init_app()` methods, and call `obj.init_app(app=flask_app)` for each of them.
 
 An example of your top-level app.py
 
@@ -81,4 +59,3 @@ db = SQLAlchemy()
 migrate = Migrate(db=db)
 mail = Mail()
 ```
-

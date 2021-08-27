@@ -53,7 +53,12 @@ def create_app():
     return flask_app
 ```
 
+Initially designed to solve a specific problem of initializing Flask applications, it was made generic enough to work with any micro-framework or no framework at all.
 
 <!--intro-end-->
 
-Visit [the deescovery documentation site](https://imankulov.github.io/deescovery/) to learn more.
+## Read more
+
+- [Usage with Flask](https://imankulov.github.io/deescovery/flask/)
+- [Usafe with anything else](https://imankulov.github.io/deescovery/anything_else/)
+- [API](https://imankulov.github.io/deescovery/api/)
