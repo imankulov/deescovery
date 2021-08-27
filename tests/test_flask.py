@@ -1,7 +1,7 @@
 from flask import Flask
 
-from roman_discovery import discover
-from roman_discovery.flask import get_flask_rules
+from deescovery import discover
+from deescovery.flask import get_flask_rules
 
 
 def test_discover_flask_should_load_blueprints(sample_project):

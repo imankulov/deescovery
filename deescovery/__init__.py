@@ -3,7 +3,7 @@ __email__ = "roman.imankulov@gmail.com"
 __version__ = "0.3.2"
 
 
-from roman_discovery.discovery import IRule, ModuleRule, ObjectRule, discover
+from deescovery.discovery import IRule, ModuleRule, ObjectRule, discover
 
 __all__ = (
     "discover",

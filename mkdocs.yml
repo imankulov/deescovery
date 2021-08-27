@@ -1,13 +1,13 @@
 site_name: Roman Discovery
-repo_url: https://github.com/imankulov/roman-discovery
-repo_name: roman-discovery
+repo_url: https://github.com/imankulov/deescovery
+repo_name: deescovery
 
 plugins:
   - search
   - include-markdown
   - mkdocstrings:
       watch:
-        - roman_discovery
+        - deescovery
 
 markdown_extensions:
   - admonition

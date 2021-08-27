@@ -1,7 +1,7 @@
 [tool.poetry]
-name = "roman_discovery"
+name = "deescovery"
 version = "0.3.2"
-homepage = "https://github.com/imankulov/roman_discovery"
+homepage = "https://github.com/imankulov/deescovery"
 description = "Discover packages and classes in a python project."
 authors = ["Roman Imankulov <roman.imankulov@gmail.com>"]
 readme = "README.md"
@@ -17,7 +17,7 @@ classifiers=[
     'Programming Language :: Python :: 3.9',
 ]
 packages = [
-    { include = "roman_discovery" },
+    { include = "deescovery" },
     { include = "tests", format = "sdist" },
 ]
 

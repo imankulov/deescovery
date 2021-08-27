@@ -37,13 +37,13 @@ def create_app(config_class=Config):
 
 _A common Flask application. The code is based on the Flask Mega-Tutorial._
 
-With `roman-discovery`, you can make the same code shorter, and remove the dependencies from implementation details.
+With `deescovery`, you can make the same code shorter, and remove the dependencies from implementation details.
 
 ```python
 # file: myproject/app.py
 from flask import Flask
-from roman_discovery import discover
-from roman_discovery.flask import get_flask_rules
+from deescovery import discover
+from deescovery.flask import get_flask_rules
 
 
 def create_app():
@@ -56,4 +56,4 @@ def create_app():
 
 <!--intro-end-->
 
-Visit [the roman-discovery documentation site](https://imankulov.github.io/roman-discovery/) to learn more.
+Visit [the deescovery documentation site](https://imankulov.github.io/deescovery/) to learn more.

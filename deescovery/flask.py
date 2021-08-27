@@ -4,8 +4,8 @@ A sample Flask app generator would look like this.
 
 ```python
 from flask import Flask
-from roman_discovery discover
-from roman_discovery.flask import get_flask_rules
+from deescovery discover
+from deescovery.flask import get_flask_rules
 
 def app() -> Flask:
     flask_app = Flask(__name__)
@@ -18,13 +18,9 @@ def app() -> Flask:
 from importlib import import_module
 from typing import List
 
-from roman_discovery import IRule
-from roman_discovery.discovery import ModuleRule, ObjectRule
-from roman_discovery.matchers import (
-    MatchByCallableAttribute,
-    MatchByPattern,
-    MatchByType,
-)
+from deescovery import IRule
+from deescovery.discovery import ModuleRule, ObjectRule
+from deescovery.matchers import MatchByCallableAttribute, MatchByPattern, MatchByType
 
 
 def get_flask_rules(import_path: str, flask_app) -> List[IRule]:
@@ -42,7 +38,7 @@ def get_flask_rules(import_path: str, flask_app) -> List[IRule]:
         flask_app: a Flask app instance.
 
     Returns:
-        A list of rules, suitable to be passed to "roman_discovery.discover()"
+        A list of rules, suitable to be passed to "deescovery.discover()"
     """
     return [
         models_loader(import_path),

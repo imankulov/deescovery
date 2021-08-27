@@ -1,6 +1,6 @@
 import pytest
 
-from roman_discovery.matchers import (
+from deescovery.matchers import (
     MatchByCallableAttribute,
     MatchByPattern,
     MatchBySubclass,

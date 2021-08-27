@@ -7,7 +7,7 @@ from importlib import import_module
 from logging import getLogger
 from typing import Any, Callable, List
 
-from roman_discovery.contrib import find_modules
+from deescovery.contrib import find_modules
 
 ModuleMatches = Callable[[str], bool]
 ModuleAction = Callable[[str], Any]

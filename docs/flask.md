@@ -1,7 +1,7 @@
 # Usage with Flask
 
-Using within the opinionated Flask structure was the initial purpose of the package. Use `roman_discovery.discover()` with
-`roman_discovery.flask.get_flask_rules()`.
+Using within the opinionated Flask structure was the initial purpose of the package. Use `deescovery.discover()` with
+`deescovery.flask.get_flask_rules()`.
 
 The function expects the following project structure.
 
@@ -56,8 +56,8 @@ An example of your top-level app.py
 ```python
 # file: myproject/app.py
 from flask import Flask
-from roman_discovery import discover
-from roman_discovery.flask import get_flask_rules
+from deescovery import discover
+from deescovery.flask import get_flask_rules
 
 
 def app() -> Flask:

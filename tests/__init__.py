@@ -1,1 +1,1 @@
-"""Unit test package for roman_discovery."""
+"""Unit test package for deescovery."""

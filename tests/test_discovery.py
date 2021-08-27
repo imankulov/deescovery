@@ -3,8 +3,8 @@ from typing import List
 
 from flask import Blueprint
 
-from roman_discovery import ModuleRule, ObjectRule, discover
-from roman_discovery.matchers import MatchByPattern, MatchByType
+from deescovery import ModuleRule, ObjectRule, discover
+from deescovery.matchers import MatchByPattern, MatchByType
 
 
 def test_module_rule_should_find_modules(collector: List, sample_project: pathlib.Path):
