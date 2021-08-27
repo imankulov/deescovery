@@ -41,4 +41,4 @@ requires = ["poetry>=1.0.5"]
 build-backend = "poetry.masonry.api"
 
 [tool.coverage.run]
-source = ["tests", "Roman Discovery"]
+source = ["tests", "deescovery"]
