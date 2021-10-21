@@ -19,6 +19,8 @@ nav:
   - Home: index.md
   - flask.md
   - anything_else.md
+  - Examples:
+      - examples/typer.md
   - API: api.md
 
 
