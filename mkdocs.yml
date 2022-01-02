@@ -21,8 +21,10 @@ nav:
   - anything_else.md
   - Examples:
       - examples/typer.md
-  - API: api.md
-
+  - API:
+      - api/deescovery.md
+      - api/matchers.md
+      - api/flask.md
 
 theme:
   name: material
