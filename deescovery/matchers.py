@@ -1,4 +1,4 @@
-"""List of generic matchers."""
+"""Module and object matchers."""
 import fnmatch
 import inspect
 from dataclasses import dataclass
@@ -7,13 +7,18 @@ from typing import Any, List, Type
 
 @dataclass
 class MatchByPattern:
-    """Module matcher that selects module names by patterns.
+    """**Module matcher** that selects module names by patterns.
 
-    Constructor accepts the list of Unix shell-style wildcards for module names. E.g.
-    the following instance will match all files "models.py" and "models/<something>.py"
-    in a flat list of packages inside your application.
+    **Example:**
 
-        matcher = MatchByPattern(["*.models", "*.models.*"])
+    ```python
+    matcher = MatchByPattern(["*.models", "*.models.*"])
+    ```
+
+    Attributes:
+        patterns: the list of Unix shell-style wildcards for module names. E.g.
+            the following instance will match all files `models.py` and
+            `models/<something>.py` in a flat list of packages inside your application.
     """
 
     patterns: List[str]
@@ -27,13 +32,21 @@ class MatchByPattern:
 
 @dataclass
 class MatchByType:
-    """Object matcher that selects instances by type.
+    """**Object matcher** that selects instances by their type.
 
-    Constructor accepts a type or a tuple of types. E.g., the following instance will
-    find all Flask blueprints in a module.
+    Same as `lambda obj: isintance(obj, object_type)`.
 
-        from flask import Blueprint
-        matcher = MatchByType(Blueprint)
+    **Example:**
+
+    Find all Flask blueprints in a module.
+
+    ```python
+    from flask import Blueprint
+    matcher = MatchByType(Blueprint)
+    ```
+
+    Attributes:
+        object_type: object type or a list of types.
     """
 
     object_type: Type
@@ -44,13 +57,21 @@ class MatchByType:
 
 @dataclass
 class MatchBySubclass:
-    """Object matcher that select classes that are subclasses of a given type.
+    """**Object matcher** that select classes that are subclasses of a given type.
 
-    Constructor accepts a type or a tuple of types. E.g., the following instance will
-    find all Django models in a model.
+    Almost the same as `lambda obj: issubclass(obj, object_type)`.
 
-        from django.db import models
-        matcher = MatchBySubclass(models.Model)
+    **Example:**
+
+    Find all Django models.
+
+    ```python
+    from django.db import models
+    matcher = MatchBySubclass(models.Model)
+    ```
+
+    Attributes:
+        object_type: a type or a tuple of types.
     """
 
     object_type: Type
@@ -65,13 +86,20 @@ class MatchBySubclass:
 
 @dataclass
 class MatchByAttribute:
-    """Object matcher that selects having an attribute with the given name.
+    """**Object matcher** that selects objects having an attribute with the given name.
 
-    Constructor accepts an attribute name as a string. E.g., the following instance
-    will find all objects that have an attribute `init_app` (a common way for
-    initializing Flask plugins.)
+    The same as `lambda obj: hasattr(obj, attribute_name)`
 
-        MatchByAttribute("init_app")
+    **Example:**
+
+    Find all objects that have an attribute `init_app`.
+
+    ```python
+    MatchByAttribute("init_app")
+    ```
+
+    Attributes:
+        attribute_name: attribute name as a string.
     """
 
     attribute_name: str
