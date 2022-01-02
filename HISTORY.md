@@ -3,6 +3,7 @@
 ## UNRELEASED
 
 * (backward-incompatible) Renamed a matcher: `MatchByCallableAttribute` to `MatchByMethod`
+* Added support for Python3.10
 * Updated documentation for module and object rules.
 * Updated documentation for matchers.
 * Added an example for Typer.
