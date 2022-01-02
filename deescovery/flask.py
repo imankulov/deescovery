@@ -20,7 +20,7 @@ from typing import List
 
 from deescovery import IRule
 from deescovery.discovery import ModuleRule, ObjectRule
-from deescovery.matchers import MatchByCallableAttribute, MatchByPattern, MatchByType
+from deescovery.matchers import MatchByMethod, MatchByPattern, MatchByType
 
 
 def get_flask_rules(import_path: str, flask_app) -> List[IRule]:
@@ -94,7 +94,7 @@ def service_initializer(import_path, flask_app):
     return ObjectRule(
         name="Flask service initializer",
         module_matches=MatchByPattern([f"{import_path}.services"]),
-        object_matches=MatchByCallableAttribute("init_app"),
+        object_matches=MatchByMethod("init_app"),
         object_action=lambda obj: obj.init_app(app=flask_app),
     )
 

@@ -2,6 +2,7 @@
 
 ## UNRELEASED
 
+* (backward-incompatible) Renamed a matcher: `MatchByCallableAttribute` to `MatchByMethod`
 * Updated documentation for module and object rules.
 * Added an example for Typer.
 

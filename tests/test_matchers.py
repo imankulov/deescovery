@@ -1,10 +1,6 @@
 import pytest
 
-from deescovery.matchers import (
-    MatchByCallableAttribute,
-    MatchByPattern,
-    MatchBySubclass,
-)
+from deescovery.matchers import MatchByMethod, MatchByPattern, MatchBySubclass
 
 
 @pytest.mark.parametrize(
@@ -30,10 +26,8 @@ def test_match_by_pattern_should_return_relevant_packages(patterns, package, res
         ("foo", "", False),  # non-existent attribute
     ],
 )
-def test_match_by_callable_attribute_should_return_relevant_objects(
-    attribute, obj, result
-):
-    matcher = MatchByCallableAttribute(attribute)
+def test_match_by_method_should_return_relevant_objects(attribute, obj, result):
+    matcher = MatchByMethod(attribute)
     assert matcher(obj) == result
 
 

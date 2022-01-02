@@ -81,21 +81,27 @@ class MatchByAttribute:
 
 
 @dataclass
-class MatchByCallableAttribute:
-    """Object matcher that selects having a callable attribute with the given name.
+class MatchByMethod:
+    """**Object matcher** that selects objects having a method with a specific name.
 
-    Constructor accepts an attribute name as a string. E.g., the following instance
-    will find all objects having a method `init_app()` (a common way for
-    initializing Flask plugins.)
+    **Example:**
 
-        MatchByCallableAttribute("init_app")
+    Find all objects having a method `init_app()` (a common way for initializing Flask
+    plugins.)
+
+    ```python
+    MatchByMethod("init_app")
+    ```
+
+    Attributes:
+        method_name: method name as a string.
     """
 
-    attribute_name: str
+    method_name: str
 
     def __call__(self, obj: Any):
         return (
             not inspect.isclass(obj)
-            and hasattr(obj, self.attribute_name)
-            and callable(getattr(obj, self.attribute_name))
+            and hasattr(obj, self.method_name)
+            and callable(getattr(obj, self.method_name))
         )
