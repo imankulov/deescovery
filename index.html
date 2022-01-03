@@ -434,13 +434,20 @@
                 <!-- BEGIN INCLUDE ../README.md &lt;!--intro-start--&gt; &lt;!--intro-end--&gt; -->
 
 <h1 id="deescovery">Deescovery</h1>
+<p><strong>Deescovery</strong> is a Python package that helps initialize modules of your Python projects on startup:</p>
+<ul>
+<li>Find and register blueprints in a Flask project.</li>
+<li>Automatically initialize Flask extensions.</li>
+<li>Find all SQLAlchemy models to make alembic happy.</li>
+<li>Find all FastAPI endpoints.</li>
+<li>Collect all Celery tasks.</li>
+</ul>
+<p>Initially designed to solve a specific problem of initializing Flask applications, it was made generic enough to work with any micro-framework or no framework at all.</p>
 <h2 id="micro-framework-initialization-problem">Micro-framework initialization problem</h2>
 <p>Micro-framework-based projects are clean while they're small. Every micro-framework codebase I've seen, has a mess in the project initialization. With time, <code>create_app()</code> becomes filled with ad-hoc settings, imports-within-functions, and plug-in initializations.</p>
 <p>The Application Factory Pattern, proposed, for example, in the <a href="https://flask.palletsprojects.com/en/2.0.x/patterns/appfactories/">official Flask documentation</a>, and the <a href="https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-xv-a-better-application-structure">Flask Mega-Tutorial</a>, legitimize this approach.</p>
 <p>The nature of <code>create_app()</code> leaves no place for the <a href="https://blog.cleancoder.com/uncle-bob/2014/05/12/TheOpenClosedPrinciple.html">open-closed principle</a>. We update this module every time we add a new plug-in, a new blueprint, or a new package.</p>
-<div class="highlight"><pre><span></span><code><span class="c1"># myproject/__ini__.py</span>
-<span class="c1">#</span>
-<span class="c1"># A common Flask application. The code is based on the Flask Mega-Tutorial.</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># myproject/__init__.py</span>
 
 <span class="k">def</span> <span class="nf">create_app</span><span class="p">(</span><span class="n">config_class</span><span class="o">=</span><span class="n">Config</span><span class="p">):</span>
     <span class="n">app</span> <span class="o">=</span> <span class="n">Flask</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
@@ -476,7 +483,6 @@
     <span class="n">discover</span><span class="p">(</span><span class="s2">&quot;myproject&quot;</span><span class="p">,</span> <span class="n">get_flask_rules</span><span class="p">(</span><span class="s2">&quot;myproject&quot;</span><span class="p">,</span> <span class="n">flask_app</span><span class="p">))</span>
     <span class="k">return</span> <span class="n">flask_app</span>
 </code></pre></div>
-<p>Initially designed to solve a specific problem of initializing Flask applications, it was made generic enough to work with any micro-framework or no framework at all.</p>
 <!-- END INCLUDE -->
                 
               
