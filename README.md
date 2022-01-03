@@ -1,6 +1,16 @@
 <!--intro-start-->
 # Deescovery
 
+**Deescovery** is a Python package that helps initialize modules of your Python projects on startup:
+
+- Find and register blueprints in a Flask project.
+- Automatically initialize Flask extensions.
+- Find all SQLAlchemy models to make alembic happy.
+- Find all FastAPI endpoints.
+- Collect all Celery tasks.
+
+Initially designed to solve a specific problem of initializing Flask applications, it was made generic enough to work with any micro-framework or no framework at all.
+
 ## Micro-framework initialization problem
 
 Micro-framework-based projects are clean while they're small. Every micro-framework codebase I've seen, has a mess in the project initialization. With time, `create_app()` becomes filled with ad-hoc settings, imports-within-functions, and plug-in initializations.
@@ -10,9 +20,7 @@ The Application Factory Pattern, proposed, for example, in the [official Flask d
 The nature of `create_app()` leaves no place for the [open-closed principle](https://blog.cleancoder.com/uncle-bob/2014/05/12/TheOpenClosedPrinciple.html). We update this module every time we add a new plug-in, a new blueprint, or a new package.
 
 ```python
-# myproject/__ini__.py
-#
-# A common Flask application. The code is based on the Flask Mega-Tutorial.
+# myproject/__init__.py
 
 def create_app(config_class=Config):
     app = Flask(__name__)
@@ -53,7 +61,6 @@ def create_app():
     return flask_app
 ```
 
-Initially designed to solve a specific problem of initializing Flask applications, it was made generic enough to work with any micro-framework or no framework at all.
 
 <!--intro-end-->
 
