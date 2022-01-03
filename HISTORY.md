@@ -1,6 +1,6 @@
 # History
 
-## UNRELEASED
+## 1.0.0 (2022-01-03)
 
 * (backward-incompatible) Renamed a matcher: `MatchByCallableAttribute` to `MatchByMethod`
 * Added support for Python3.10

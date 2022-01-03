@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "deescovery"
-version = "0.3.2"
+version = "1.0.0"
 homepage = "https://github.com/imankulov/deescovery"
 description = "Discover packages and classes in a python project."
 authors = ["Roman Imankulov <roman.imankulov@gmail.com>"]
