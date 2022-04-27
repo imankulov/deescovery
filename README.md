@@ -1,7 +1,7 @@
 <!--intro-start-->
 # Deescovery
 
-**Deescovery** is a Python package that helps initialize modules of your Python projects on startup:
+**Deescovery** is a Python package to find and initialize modules of your Python projects on startup.
 
 - Find and register blueprints in a Flask project.
 - Automatically initialize Flask extensions.
@@ -9,7 +9,7 @@
 - Find all FastAPI endpoints.
 - Collect all Celery tasks.
 
-Initially designed to solve a specific problem of initializing Flask applications, it was made generic enough to work with any micro-framework or no framework at all.
+Initially designed to initialize Flask applications, it was made generic enough to work with any micro-framework or no framework at all.
 
 ## Micro-framework initialization problem
 
