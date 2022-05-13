@@ -33,6 +33,10 @@ def get_flask_rules(import_path: str, flask_app) -> List[IRule]:
     - Load Flask CLI commands (files cli.py)
     - Initialize services (top-level file services.py)
 
+    The service initialization step relied on the de-facto standard for
+    initializing Flask extensions: calls `obj.init_app(flask_app)`
+    for each of the objects in the top-level `services.py` file.
+
     Args:
         import_path: name of the top-level module of the project (like, "myproject")
         flask_app: a Flask app instance.
