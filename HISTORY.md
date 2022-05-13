@@ -1,5 +1,9 @@
 # History
 
+## UNRELEASED
+
+* Updated documentation.
+
 ## 1.0.0 (2022-01-03)
 
 * (backward-incompatible) Renamed a matcher: `MatchByCallableAttribute` to `MatchByMethod`
