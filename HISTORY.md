@@ -1,6 +1,6 @@
 # History
 
-## UNRELEASED
+## 1.1.0 (2022-05-26)
 
 * Set default action for ModuleRule: import it.
 

@@ -1,6 +1,6 @@
 __author__ = """Roman Imankulov"""
 __email__ = "roman.imankulov@gmail.com"
-__version__ = "1.0.1"
+__version__ = "1.1.0"
 
 
 from deescovery.discovery import IRule, ModuleRule, ObjectRule, discover
