@@ -67,5 +67,5 @@ def create_app():
 ## Read more
 
 - [Usage with Flask](https://imankulov.github.io/deescovery/flask/)
-- [Usafe with anything else](https://imankulov.github.io/deescovery/anything_else/)
-- [API](https://imankulov.github.io/deescovery/api/)
+- [Usage with anything else](https://imankulov.github.io/deescovery/anything_else/)
+- [API](https://imankulov.github.io/deescovery/api/deescovery/)
