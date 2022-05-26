@@ -15,7 +15,6 @@ def app() -> Flask:
     return flask_app
 ```
 """
-from importlib import import_module
 from typing import List
 
 from deescovery import IRule
@@ -57,7 +56,6 @@ def models_loader(import_path):
     return ModuleRule(
         name="Flask models loader",
         module_matches=MatchByPattern(generate_patterns(import_path, "models")),
-        module_action=import_module,
     )
 
 

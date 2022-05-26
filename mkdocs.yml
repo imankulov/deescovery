@@ -25,6 +25,7 @@ nav:
       - api/deescovery.md
       - api/matchers.md
       - api/flask.md
+      - api/helpers.md
 
 theme:
   name: material

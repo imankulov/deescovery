@@ -45,7 +45,6 @@ class ModuleRule(IRule):
 
 
     ```python
-    from importlib import import_module
     from flask import Flask, Blueprint
     from deescovery import discover, ModuleRule
     from deescovery.matchers import MatchByPattern, MatchByType
@@ -55,7 +54,6 @@ class ModuleRule(IRule):
     controller_loader = ModuleRule(
         name="Flask blueprints loader",
         module_matches=MatchByPattern(["*.controllers"]),
-        module_action=import_module,
     )
 
     discover("myapp", [controller_loader])
@@ -70,14 +68,14 @@ class ModuleRule(IRule):
 
         module_action: a callable (function) that takes the module name. The action
             will only be executed if the module matches the pre-condition of
-            `module_matches`. The most common action is importing the module to
-            execute its content. For example, you can use it to register all API
-            controllers that the module contains and defines with decorators.
+            `module_matches`. Default and the most common action is importing the
+            module to execute its content. For example, you can use it to register
+            all API controllers that the module contains and defines with decorators.
     """
 
     name: str
     module_matches: ModuleMatches
-    module_action: ModuleAction
+    module_action: ModuleAction = import_module
 
     def discover(self, module_name: str) -> None:
         if self.module_matches(module_name):  # type: ignore
